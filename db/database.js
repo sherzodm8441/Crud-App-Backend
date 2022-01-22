@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 
-//const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
+//const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')  <-- template
 
 const db = new Sequelize(
     'postgres://postgres:postgres@localhost:5432/crudapp_db',
@@ -18,4 +18,5 @@ module.exports = db
 // }).catch((err) => {
 //     console.log(err)
 // });
+
 

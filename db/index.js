@@ -3,6 +3,7 @@ const Student = require('./students')
 const Campus = require('./campuses')
 
 
+// Set associations
 
 Campus.hasMany(Student)
 Student.belongsTo(Campus)

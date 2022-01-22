@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Student } = require('../db')
 const { Campus } = require('../db')
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { //serves up all students
     try{
         const students = await Student.findAll()
         res.status(200).send(students)
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) =>{
+router.get('/:id', async (req, res) =>{ //serves up a student with the given id including their campus
     try{
         const student = await Student.findByPk(req.params.id)
         const temp = student.toJSON()
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
-router.post('/', async (req, res) =>{
+router.post('/', async (req, res) =>{ //adds a student to the student model
     try{
         const addStudent = await Student.create(req.body)
         res.json(addStudent)
@@ -32,7 +32,7 @@ router.post('/', async (req, res) =>{
     }
 })
 
-router.delete('/:id', async (req, res) =>{
+router.delete('/:id', async (req, res) =>{ //deletes a student with the given id
     try{
         const deleteStudent = await Student.destroy({where : {id : req.params.id}})
         res.json(deleteStudent)

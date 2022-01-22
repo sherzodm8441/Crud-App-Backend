@@ -33,5 +33,14 @@ router.post('/', async (req, res) =>{
 })
 
 
+router.delete('/:id', async (req, res) =>{
+    try{
+        const deleteCampus = await Campus.destroy({where : {id : req.params.id}})
+        res.json(deleteCampus)
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+})
+
 
 module.exports = router

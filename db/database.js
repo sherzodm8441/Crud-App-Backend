@@ -2,9 +2,10 @@ const { Sequelize } = require('sequelize');
 
 
 //const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')  <-- template
+//'postgres://postgres:postgres@localhost:5432/crudapp_db'
 
-const db = new Sequelize(
-    'postgres://postgres:postgres@localhost:5432/crudapp_db',
+const db = new Sequelize(DATABASE_URL
+    ,
     {logging : false}
 );
 

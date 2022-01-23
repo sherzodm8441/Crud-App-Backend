@@ -41,5 +41,16 @@ router.delete('/:id', async (req, res) =>{ //deletes a student with the given id
     }
 })
 
+router.patch('/:id', async (req, res) =>{ //updates student with the given id
+    try{
+        const updateStudent = await Student.update(req.body, {where : {id : req.params.id}})
+        res.json(updateStudent)
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+})
+
+
+
 
 module.exports = router
